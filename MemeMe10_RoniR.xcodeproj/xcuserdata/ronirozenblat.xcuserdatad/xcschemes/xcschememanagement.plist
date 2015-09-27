@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>MemeMe10_RoniR.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BB35945F1BB89EFB00D06204</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB3594731BB89EFC00D06204</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB35947E1BB89EFC00D06204</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
