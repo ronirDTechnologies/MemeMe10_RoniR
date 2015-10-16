@@ -21,6 +21,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var userSelectedImage: UIImageView!
    
     
+    @IBAction func performCancelButton(sender: UIBarButtonItem) {
+        // if the user cancels go back to intial state of app
+        setToInitialState()
+        topMemeTextField.text = ""
+        bottomMemeTextField.text = ""
+    }
+    
     @IBAction func performActionButton(sender: AnyObject) {
         print("THE ACTION BUTTON HAS BEEN PRESSED")
     }
@@ -40,15 +47,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.topMemeTextField.delegate = self
+        self.bottomMemeTextField.delegate = self
        setToInitialState()
   
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
     // Present Image Picker Based on Source Type Provided
@@ -71,27 +76,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Sets everything back to the intial state
     func setToInitialState()
     {
-        self.actionButton.enabled = false
-        self.memeView.backgroundColor = UIColor.blackColor()
+        actionButton.enabled = false
+        memeView.backgroundColor = UIColor.blackColor()
+        userSelectedImage.image = nil
+        
         
         // Set Text Properties
-        //TODO:
-        // FONT BOLD
-        // ALL CAPS
-        // WHITE COLOR
-        // BLACK OUTLINE
-        // SHRINK TO FIT
-        // IMPACT FONT
+        
+        let memeTextAttri = [   NSStrokeColorAttributeName: UIColor.blackColor(),
+                                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                                NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+                                NSStrokeWidthAttributeName: -3.0]
+        
         
         // Set Placeholder attributes
         
-        let memeAttr: defaultTextAttributes
-        
-        
         let topPlaceHolderColor = NSAttributedString(string: "TOP", attributes: [
-                                                        NSBackgroundColorAttributeName:UIColor.clearColor(),
                                                         NSForegroundColorAttributeName:UIColor.whiteColor(),
-                                                        NSFontAttributeName : UIFont(name: "Arial-BoldMT", size: 25)!,
+                                                        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
                                                         NSStrokeColorAttributeName: UIColor.blackColor(),
                                                         NSStrokeWidthAttributeName: -3.0
 
@@ -99,24 +101,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                                     )
         let bottomPlaceHolderColor = NSAttributedString(string: "BOTTOM", attributes: [
                                                         NSForegroundColorAttributeName:UIColor.whiteColor(),
-                                                        NSBackgroundColorAttributeName:UIColor.clearColor(),
-                                                        NSFontAttributeName : UIFont(name: "Arial-BoldMT", size: 25)!,
+                                                        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
                                                         NSStrokeColorAttributeName: UIColor.blackColor(),
                                                         NSStrokeWidthAttributeName: -3.0
                                                                                       ]
                                                     )
         
-        self.topMemeTextField.attributedPlaceholder = topPlaceHolderColor
-        self.topMemeTextField.borderStyle = .None
-        self.bottomMemeTextField.attributedPlaceholder = bottomPlaceHolderColor
-        self.bottomMemeTextField.borderStyle = .None
         
-       // Set Text Attributes
+        // Set Text Attributes
         
-        self.topMemeTextField.textAlignment = .Center
-        self.bottomMemeTextField.textAlignment = .Center
-  
-        self.topMemeTextField.textColor = UIColor.whiteColor()
+       
+        
+        topMemeTextField.defaultTextAttributes = memeTextAttri
+        bottomMemeTextField.defaultTextAttributes  = memeTextAttri
+
+        topMemeTextField.attributedPlaceholder = topPlaceHolderColor
+        
+        
+        bottomMemeTextField.attributedPlaceholder = bottomPlaceHolderColor
+       
+        topMemeTextField.textAlignment = .Center
+        bottomMemeTextField.textAlignment = .Center
+        
         
         // Check to see if a camera exists on a device
         if ((UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil) &&
@@ -143,6 +149,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let userSelectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.userSelectedImage.image = userSelectedImage
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    // Move keyboard code
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.subscribeToKeyboardNotifications()
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
+    }
+    
+    
+    func subscribeToKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().removeObserver(self,name: UIKeyboardWillShowNotification,object:nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,name: UIKeyboardWillHideNotification,object:nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomMemeTextField.isFirstResponder(){
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        if bottomMemeTextField.isFirstResponder(){
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
     }
 
 

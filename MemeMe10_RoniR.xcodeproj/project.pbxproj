@@ -481,6 +481,7 @@
 				BB35948A1BB89EFC00D06204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB35948B1BB89EFC00D06204 /* Build configuration list for PBXNativeTarget "MemeMe10_RoniRTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +490,7 @@
 				BB35948D1BB89EFC00D06204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB35948E1BB89EFC00D06204 /* Build configuration list for PBXNativeTarget "MemeMe10_RoniRUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +499,7 @@
 				BB3594901BB89EFC00D06204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
