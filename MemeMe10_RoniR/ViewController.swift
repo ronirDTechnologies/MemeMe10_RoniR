@@ -56,7 +56,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     
     
-    // Present Image Picker Based on Source Type Provided
+    @IBOutlet weak var performActionButton: UIBarButtonItem!    // Present Image Picker Based on Source Type Provided
     func showImagePickerController(sourceType: UIImagePickerControllerSourceType){
         
             let imagePickerController = UIImagePickerController()
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Sets everything back to the intial state
     func setToInitialState()
     {
-        actionButton.enabled = false
+        actionButton.enabled = true
         memeView.backgroundColor = UIColor.blackColor()
         userSelectedImage.image = nil
         
@@ -173,8 +173,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func subscribeToKeyboardNotifications(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications(){
@@ -184,12 +184,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomMemeTextField.isFirstResponder(){
+            //self.view.frame.origin.y -= getKeyboardHeight(notification)
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomMemeTextField.isFirstResponder(){
+            //self.view.frame.origin.y += getKeyboardHeight(notification)
             self.view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
@@ -198,6 +200,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 
