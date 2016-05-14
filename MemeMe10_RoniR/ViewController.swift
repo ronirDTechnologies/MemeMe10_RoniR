@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topMemeTextField: UITextField!
     @IBOutlet weak var bottomMemeTextField: UITextField!
     @IBOutlet weak var userSelectedImage: UIImageView!
+    var priorKeyboardHeight: CGFloat = 0.0
    
     
     @IBAction func performCancelButton(sender: UIBarButtonItem) {
@@ -158,6 +159,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    
     // Move keyboard code
     
     override func viewWillAppear(animated: Bool) {
@@ -175,6 +177,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func subscribeToKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
     }
     
     func unsubscribeFromKeyboardNotifications(){
@@ -182,19 +185,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSNotificationCenter.defaultCenter().removeObserver(self,name: UIKeyboardWillHideNotification,object:nil)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        if bottomMemeTextField.isFirstResponder(){
-            //self.view.frame.origin.y -= getKeyboardHeight(notification)
+    func keyboardWillShow(notification: NSNotification)
+    {
+        if bottomMemeTextField.isFirstResponder()
+        {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
+            print("Keyboard showing")
+            
+            
         }
+        if (getKeyboardHeight(notification) != priorKeyboardHeight){
+            print("KeyboardHeight is \(getKeyboardHeight(notification)) not equal to \(priorKeyboardHeight)")
+        
+            if ((priorKeyboardHeight == 216.0) && (getKeyboardHeight(notification) == 162.0))
+            {
+                self.view.frame.origin.y += getKeyboardHeight(notification)
+            }
+            else if((priorKeyboardHeight == 162.0) && (getKeyboardHeight(notification) == 216.0))
+            {
+                self.view.frame.origin.y += getKeyboardHeight(notification)
+            }
+    }
+        
+        priorKeyboardHeight = getKeyboardHeight(notification)
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomMemeTextField.isFirstResponder(){
-            //self.view.frame.origin.y += getKeyboardHeight(notification)
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.view.frame.origin.y = 0//+= getKeyboardHeight(notification)
+            print("Keyboard hiding")
+            
         }
     }
+    
+  
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
