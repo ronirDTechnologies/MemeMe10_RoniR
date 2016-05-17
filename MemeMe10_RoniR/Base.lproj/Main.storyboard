@@ -62,12 +62,13 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-Wy-COD">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2j-Ve-TRR">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2j-Ve-TRR">
                                         <rect key="frame" x="0.0" y="36" width="414" height="17"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="TOPMEMETXT"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGt-V2-k7D">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGt-V2-k7D">
                                         <rect key="frame" x="0.0" y="626" width="414" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -116,6 +117,8 @@
                         <outlet property="bottomMemeTextField" destination="zGt-V2-k7D" id="aYe-xO-1V2"/>
                         <outlet property="cameraButton" destination="W7y-Qz-5ac" id="Nlu-qA-8PE"/>
                         <outlet property="cancelButton" destination="n7K-BG-50s" id="Yuo-MB-DFX"/>
+                        <outlet property="memeNavBar" destination="0m5-fz-yel" id="dMl-OK-34t"/>
+                        <outlet property="memeToolBar" destination="hgg-J4-tQR" id="J6w-vu-6Rg"/>
                         <outlet property="memeView" destination="KqD-cl-G53" id="dlh-Hf-pXa"/>
                         <outlet property="topMemeTextField" destination="L2j-Ve-TRR" id="jfZ-hf-512"/>
                         <outlet property="userSelectedImage" destination="2Pn-Wy-COD" id="mXI-CB-RSd"/>
