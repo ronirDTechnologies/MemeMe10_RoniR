@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, PickFontProtocol{
+
+    @IBOutlet weak var fontSelectorButton: UIBarButtonItem!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -24,6 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var priorKeyboardHeight: CGFloat = 0.0
     var combinedMeme: UIImage!
     var savedMemes = [MemeModel]()
+    var globalFontValue = "Impact"
+    
+    
     
     @IBAction func performCancelButton(sender: UIBarButtonItem)
     {
@@ -32,19 +38,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topMemeTextField.text = ""
         bottomMemeTextField.text = ""
     }
-    
+    @IBAction func performFontSelectorButton(sender: UIBarButtonItem) {
+        var controller: PickFontViewController
+        
+        controller  = storyboard?.instantiateViewControllerWithIdentifier("FontSelectorVC") as! PickFontViewController
+        controller.m_currentFont = globalFontValue
+        controller.delegate = self
+      //PickFontViewController.delegate = self
+                presentViewController(controller, animated: true, completion: nil)
+       
+        
+    }
     @IBAction func performActionButton(sender: AnyObject)
     {
        // UNCOMMENT TO DEBUG print("THE ACTION BUTTON HAS BEEN PRESSED")
         
         // 1. generate a memed image
         combinedMeme = generateMemedImage()
+       
         
         // 2. define an instance of ActivityViewController
         // 3. pass the ActivityViewController a memedImage as an activity item
         let actViewController = UIActivityViewController(activityItems: [combinedMeme], applicationActivities: nil)
+        
+        //-------------------------------------------------------------------------------------------------
+        // RR: 05-17-2016 Make change per app Udacity project review.  I found this code in 
+        // the Forum titled: "I’m not understanding the UIActivityViewController completionWithItemsHandler 
+        // iOSND P2 | UIKit Fundamentals"
+        // I thought that I could just call the saveMe func and pass it into the presentViewController completion 
+        // param.  Didn't realize that would be saved as soon as the Activity view is presented.  Now I 
+        // understand that it need to be saved once the actual Activity was completed.
+        //-------------------------------------------------------------------------------------------------
+        //If the user completes an action in the activity view controller,
+        //save the meme to the shared storage.
+        actViewController.completionWithItemsHandler = {
+            activity, completed, items, error in
+            if completed {
+                self.saveMeme()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
         // 4. present the ActivityViewController and add a completion method to save the meme
-        self.presentViewController(actViewController, animated: true, completion: saveMeme)
+        presentViewController(actViewController, animated: true, completion: nil)
     }
     
     
@@ -59,9 +94,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.topMemeTextField.delegate = self
-        self.bottomMemeTextField.delegate = self
+        topMemeTextField.delegate = self
+        bottomMemeTextField.delegate = self
         setToInitialState()
+        
+        
+        // List all available font names3
+        for family: String in UIFont.familyNames()
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNamesForFamilyName(family)
+            {
+                print("== \(names)")
+            }
+        }
+        
     }
 
     
@@ -70,6 +117,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = sourceType
         imagePickerController.delegate = self
+        
+        // Allow Editing to allow for cropping an image per Udacity forums.
+        imagePickerController.allowsEditing = true
+        
         presentViewController(imagePickerController, animated: true, completion: nil)
         
     }
@@ -86,8 +137,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         let memeTextAttri = [   NSStrokeColorAttributeName: UIColor.blackColor(),
                                 NSForegroundColorAttributeName: UIColor.whiteColor(),
-                                NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+                                NSFontAttributeName: UIFont(name: globalFontValue, size: 40)!,
                                 NSStrokeWidthAttributeName: -3.0]
+        
         
         return memeTextAttri
 
@@ -97,7 +149,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
        let placeHolderASV = NSAttributedString(string: placeholderTxt, attributes: [
                             NSForegroundColorAttributeName:UIColor.whiteColor(),
-                            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+                            NSFontAttributeName : UIFont(name: globalFontValue, size: 40)!,
                             NSStrokeColorAttributeName: UIColor.blackColor(),
                             NSStrokeWidthAttributeName: -3.0]
                             )
@@ -113,7 +165,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         memeView.backgroundColor = UIColor.blackColor()
         userSelectedImage.image = nil
         
-        
+        // Initial Font will always be impact
+        globalFontValue = "Impact"
         
         // Set Text Properties
         
@@ -214,14 +267,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
     }
     
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -242,7 +295,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         if bottomMemeTextField.isFirstResponder()
         {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            //view.frame.origin.y -= getKeyboardHeight(notification)
+            
+            // Better way to accomplish the above as per review suggestion.
+            view.frame.origin.y =  getKeyboardHeight(notification) * -1
+            
             //UNCOMMENT TO DEBUG print("Keyboard showing")
             
             
@@ -255,7 +312,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if getKeyboardHeight(notification) != priorKeyboardHeight
             {
                //UNCOMMENT TO DEBUG print("KeyboardHeight is \(getKeyboardHeight(notification)) not equal to \(priorKeyboardHeight)")
-                self.view.frame.origin.y += getKeyboardHeight(notification)
+                view.frame.origin.y += getKeyboardHeight(notification)
             }
             
         }
@@ -266,7 +323,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func keyboardWillHide(notification: NSNotification)
     {
         if bottomMemeTextField.isFirstResponder(){
-            self.view.frame.origin.y = 0//+= getKeyboardHeight(notification)
+            view.frame.origin.y = 0//+= getKeyboardHeight(notification)
             // UNCOMMENT TO DEBUG print("Keyboard hiding")
             
         }
@@ -279,8 +336,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         memeNavBar.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
                                      afterScreenUpdates: true)
         let memedImage : UIImage =
             UIGraphicsGetImageFromCurrentImageContext()
@@ -301,8 +358,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                     originalImage: userSelectedImage.image!,
                                     memedImage: combinedMeme)
     
-    // Add this new meme to our array of Meme's
-    savedMemes.append(memeModelVal)
+        // Add this new meme to our array of Meme's
+        savedMemes.append(memeModelVal)
+        print("IMAGE SAVED AND ADDED TO ARRAY")
     
     }
     
@@ -317,7 +375,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         return true
     }
-
-
+    
+   
+    // Implementing this methods conforms to PickFontProtocol.  It will kick off once a users selects an existing or new font.
+    func updateFont(newFontValue: String)
+    {
+        globalFontValue = newFontValue
+        print("THE FOLLOWING FONT WAS SELECTED AND NOW UPDATE \(globalFontValue)")
+    
+        bottomMemeTextField.defaultTextAttributes = setAttributedStringValue()
+        bottomMemeTextField.textAlignment = .Center
+        topMemeTextField.defaultTextAttributes = setAttributedStringValue()
+        topMemeTextField.textAlignment = .Center
+    
+    }
 }
 

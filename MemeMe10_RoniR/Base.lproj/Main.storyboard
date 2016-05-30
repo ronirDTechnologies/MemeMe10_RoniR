@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -38,24 +38,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-J4-tQR">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem width="90" style="plain" systemItem="fixedSpace" id="agr-4R-k9S"/>
-                                    <barButtonItem systemItem="camera" id="W7y-Qz-5ac">
-                                        <connections>
-                                            <action selector="performCameraButtonAction:" destination="BYZ-38-t0r" id="Lf9-R2-whG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4O8-Pc-DD8"/>
-                                    <barButtonItem title="Album" id="kzF-KX-SWb">
-                                        <connections>
-                                            <action selector="performAlbumButtonAction:" destination="BYZ-38-t0r" id="3QV-77-foy"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="90" style="plain" systemItem="fixedSpace" id="PSU-5M-2ZD"/>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqD-cl-G53">
                                 <rect key="frame" x="0.0" y="44" width="414" height="656"/>
                                 <subviews>
@@ -88,6 +70,28 @@
                                     <constraint firstAttribute="trailing" secondItem="L2j-Ve-TRR" secondAttribute="trailing" id="yCW-wr-B3n"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgg-J4-tQR">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="W7y-Qz-5ac">
+                                        <connections>
+                                            <action selector="performCameraButtonAction:" destination="BYZ-38-t0r" id="Lf9-R2-whG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="M2N-UG-uIk"/>
+                                    <barButtonItem title="Album" width="65" id="kzF-KX-SWb">
+                                        <connections>
+                                            <action selector="performAlbumButtonAction:" destination="BYZ-38-t0r" id="3QV-77-foy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nXP-DV-nIw"/>
+                                    <barButtonItem title="Font" width="41" id="g0n-XU-rak">
+                                        <connections>
+                                            <action selector="performFontSelectorButton:" destination="BYZ-38-t0r" id="TJD-TK-sxb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -117,6 +121,7 @@
                         <outlet property="bottomMemeTextField" destination="zGt-V2-k7D" id="aYe-xO-1V2"/>
                         <outlet property="cameraButton" destination="W7y-Qz-5ac" id="Nlu-qA-8PE"/>
                         <outlet property="cancelButton" destination="n7K-BG-50s" id="Yuo-MB-DFX"/>
+                        <outlet property="fontSelectorButton" destination="g0n-XU-rak" id="51T-xc-hSj"/>
                         <outlet property="memeNavBar" destination="0m5-fz-yel" id="dMl-OK-34t"/>
                         <outlet property="memeToolBar" destination="hgg-J4-tQR" id="J6w-vu-6Rg"/>
                         <outlet property="memeView" destination="KqD-cl-G53" id="dlh-Hf-pXa"/>
@@ -127,6 +132,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="442" y="482"/>
+        </scene>
+        <!--Font Selection View Controller-->
+        <scene sceneID="H2H-q5-j6D">
+            <objects>
+                <viewController storyboardIdentifier="FontSelectorVC" title="Font Selection View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0TI-H2-Vdi" customClass="PickFontViewController" customModule="MemeMe10_RoniR" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7wQ-5d-jwn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="PLEASE SELECT A NEW FONT BELOW:                             (TO CANCEL CHANGE, CLICK ON EXISTING FONT)" textAlignment="center" id="HiU-FF-Fel">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FontPickerCell" id="jNe-Cd-PgK">
+                                <rect key="frame" x="0.0" y="78" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jNe-Cd-PgK" id="zBx-Ha-uDg">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZA-XT-r17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887.5" y="447.5"/>
         </scene>
     </scenes>
 </document>
