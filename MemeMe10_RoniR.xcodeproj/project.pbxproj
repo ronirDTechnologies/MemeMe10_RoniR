@@ -18,6 +18,7 @@
 		BB4F46BE1CF3267D0075C332 /* ufonts.com_impact-opentype.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */; };
 		BB73294A1CF3FAA700B47AD3 /* PickFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */; };
 		BB9DE0A61CEBE87B0011D844 /* ufonts.com_impact-opentype.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */; };
+		BBF6DEE41D229BC3008DA035 /* MemeSentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BB3594851BB89EFC00D06204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFontViewController.swift; sourceTree = "<group>"; };
 		BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ufonts.com_impact-opentype.otf"; sourceTree = "<group>"; };
+		BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeSentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				BB35946C1BB89EFB00D06204 /* LaunchScreen.storyboard */,
 				BB35946F1BB89EFB00D06204 /* Info.plist */,
 				BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */,
+				BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */,
 			);
 			path = MemeMe10_RoniR;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				BB73294A1CF3FAA700B47AD3 /* PickFontViewController.swift in Sources */,
 				BB3594661BB89EFB00D06204 /* MemeEditorViewController.swift in Sources */,
 				BB156EF11CE8A9A900FA5197 /* MemeModel.swift in Sources */,
+				BBF6DEE41D229BC3008DA035 /* MemeSentTableViewController.swift in Sources */,
 				BB3594641BB89EFB00D06204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
