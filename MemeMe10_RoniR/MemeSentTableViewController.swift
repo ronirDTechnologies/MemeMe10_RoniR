@@ -10,6 +10,7 @@ import UIKit
 
 class MemeSentTableViewController: UITableViewController {
     @IBOutlet var SentMemeTableView: UITableView!
+    
 
     var memes: [MemeModel] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).globalMemes
@@ -20,8 +21,9 @@ class MemeSentTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         //SentMemeTableView.reloadData()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create Meme", style: .Plain, target: self, action: #selector(MemeSentTableViewController.createNewMeme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: #selector(MemeSentTableViewController.createNewMeme))
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -61,11 +63,13 @@ class MemeSentTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("sentMeme", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("sentMeme", forIndexPath: indexPath) as! SentMemeTableViewCell
 
         // Configure the cell...
         let memeAtPath = memes[indexPath.row] as MemeModel!
-        cell.imageView?.image = memeAtPath.memedImage
+        cell.sentMemeTableCellImage?.image = memeAtPath.memedImage
+        cell.sentMemeTableCellLabel.text = memeAtPath.topText + "...." + memeAtPath.bottomText
+        
         
 
         return cell

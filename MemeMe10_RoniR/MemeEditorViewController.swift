@@ -37,6 +37,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setToInitialState()
         topMemeTextField.text = ""
         bottomMemeTextField.text = ""
+        dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func performFontSelectorButton(sender: UIBarButtonItem) {
         var controller: PickFontViewController
