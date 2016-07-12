@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, PickFontProtocol{
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, PickFontProtocol{
 
     @IBOutlet weak var fontSelectorButton: UIBarButtonItem!
     @IBOutlet weak var actionButton: UIBarButtonItem!
@@ -37,6 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setToInitialState()
         topMemeTextField.text = ""
         bottomMemeTextField.text = ""
+        dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func performFontSelectorButton(sender: UIBarButtonItem) {
         var controller: PickFontViewController
@@ -280,8 +281,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func subscribeToKeyboardNotifications()
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
     }
     
@@ -359,7 +360,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                     memedImage: combinedMeme)
     
         // Add this new meme to our array of Meme's
-        savedMemes.append(memeModelVal)
+        //savedMemes.append(memeModelVal)
+    
+        // Add new meme to the appdelegate to implement a shared model
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.globalMemes.append(memeModelVal)
+    
         print("IMAGE SAVED AND ADDED TO ARRAY")
     
     }

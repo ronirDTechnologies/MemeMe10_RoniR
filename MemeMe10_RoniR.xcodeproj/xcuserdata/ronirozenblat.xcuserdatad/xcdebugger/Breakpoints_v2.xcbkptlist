@@ -193,6 +193,38 @@
             endingLineNumber = "15"
             landmarkName = "MemeModel"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe10_RoniR.MemeModel.originalImage.getter : __ObjC.UIImage"
+                  moduleName = "MemeMe10_RoniR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronirozenblat/Desktop/Udacity/RoniRMemeMe10/MemeMe10_RoniR/MemeModel.swift"
+                  timestampString = "490017384.678824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe10_RoniR.MemeModel.originalImage.setter : __ObjC.UIImage"
+                  moduleName = "MemeMe10_RoniR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronirozenblat/Desktop/Udacity/RoniRMemeMe10/MemeMe10_RoniR/MemeModel.swift"
+                  timestampString = "490017384.679079"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -255,7 +287,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
             endingLineNumber = "13"
-            landmarkName = "ViewController"
+            landmarkName = "MemeEditorViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -360,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MemeMe10_RoniR/MemeEditorViewController.swift"
-            timestampString = "486317836.251303"
+            timestampString = "490016626.971624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "updateFont(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -376,12 +408,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MemeMe10_RoniR/MemeEditorViewController.swift"
-            timestampString = "486317503.455843"
+            timestampString = "490016626.971624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "setAttributedStringValue()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe10_RoniR/MemeSentTableViewController.swift"
+            timestampString = "488853140.688379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
