@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MemeSentTableViewController: UITableViewController {
     @IBOutlet var SentMemeTableView: UITableView!
@@ -75,6 +76,7 @@ class MemeSentTableViewController: UITableViewController {
         return cell
     }
     
+   
 
     /*
     // Override to support conditional editing of the table view.
@@ -111,14 +113,20 @@ class MemeSentTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+  
+    
+        // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showMemeTableDetail",
+        let destination = segue.destinationViewController as? MemeDetailViewController,
+            let memeImageIndex = tableView.indexPathForSelectedRow?.row{
+        //destination. = memes[memeImageIndex].memedImage}
+            destination.combMemeImage = memes[memeImageIndex].memedImage}
     }
-    */
+  
 
 }

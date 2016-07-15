@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB156EF11CE8A9A900FA5197 /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156EF01CE8A9A900FA5197 /* MemeModel.swift */; };
+		BB2887041D35E07B00224B48 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2887031D35E07B00224B48 /* MemeDetailViewController.swift */; };
 		BB3594641BB89EFB00D06204 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3594631BB89EFB00D06204 /* AppDelegate.swift */; };
 		BB3594661BB89EFB00D06204 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3594651BB89EFB00D06204 /* MemeEditorViewController.swift */; };
 		BB3594691BB89EFB00D06204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3594671BB89EFB00D06204 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		BB156EF01CE8A9A900FA5197 /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
+		BB2887031D35E07B00224B48 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		BB3594601BB89EFB00D06204 /* MemeMe10_RoniR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe10_RoniR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3594631BB89EFB00D06204 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB3594651BB89EFB00D06204 /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */,
 				BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */,
 				BB935C8F1D2BDEA0000A7621 /* SentMemeTableViewCell.swift */,
+				BB2887031D35E07B00224B48 /* MemeDetailViewController.swift */,
 			);
 			path = MemeMe10_RoniR;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				BB3594661BB89EFB00D06204 /* MemeEditorViewController.swift in Sources */,
 				BB156EF11CE8A9A900FA5197 /* MemeModel.swift in Sources */,
 				BB935C901D2BDEA0000A7621 /* SentMemeTableViewCell.swift in Sources */,
+				BB2887041D35E07B00224B48 /* MemeDetailViewController.swift in Sources */,
 				BBF6DEE41D229BC3008DA035 /* MemeSentTableViewController.swift in Sources */,
 				BB3594641BB89EFB00D06204 /* AppDelegate.swift in Sources */,
 			);

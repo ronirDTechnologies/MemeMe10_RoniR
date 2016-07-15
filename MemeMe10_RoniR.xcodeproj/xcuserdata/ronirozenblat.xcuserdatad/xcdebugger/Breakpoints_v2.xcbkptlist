@@ -202,7 +202,7 @@
                   moduleName = "MemeMe10_RoniR"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ronirozenblat/Desktop/Udacity/RoniRMemeMe10/MemeMe10_RoniR/MemeModel.swift"
-                  timestampString = "490017384.678824"
+                  timestampString = "490248247.550143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -217,7 +217,7 @@
                   moduleName = "MemeMe10_RoniR"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ronirozenblat/Desktop/Udacity/RoniRMemeMe10/MemeMe10_RoniR/MemeModel.swift"
-                  timestampString = "490017384.679079"
+                  timestampString = "490248247.550499"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -424,11 +424,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MemeMe10_RoniR/MemeSentTableViewController.swift"
-            timestampString = "488853140.688379"
+            timestampString = "490245232.734023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe10_RoniR/MemeSentTableViewController.swift"
+            timestampString = "490246329.166197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe10_RoniR/MemeDetailViewController.swift"
+            timestampString = "490247093.778535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
