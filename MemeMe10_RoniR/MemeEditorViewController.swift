@@ -28,6 +28,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var combinedMeme: UIImage!
     var savedMemes = [MemeModel]()
     var globalFontValue = "Impact"
+    var didComeFromDetailVC = false
+    var memeObj: MemeModel?
     
     
     
@@ -98,6 +100,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topMemeTextField.delegate = self
         bottomMemeTextField.delegate = self
         setToInitialState()
+        topMemeTextField.text = memeObj?.topText
+        bottomMemeTextField.text = memeObj?.bottomText
+        userSelectedImage.image = memeObj?.originalImage
         
         
         // List all available font names3
