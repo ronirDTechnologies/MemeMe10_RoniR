@@ -1,0 +1,91 @@
+//
+//  MemeSentCollectionViewController.swift
+//  MemeMe10_RoniR
+//
+//  Created by Roni Rozenblat on 7/25/16.
+//  Copyright © 2016 Roni Rozenblat. All rights reserved.
+//
+
+import UIKit
+
+private let reuseIdentifier = "SentMemeCollViewCell"
+
+class MemeSentCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet var MemeCollectionVC: UICollectionView!
+    @IBOutlet var MemeCollectionViewFlowlayout: UICollectionViewFlowLayout!
+    
+    var memes: [MemeModel] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).globalMemes
+    }
+    override func viewWillAppear(animated: Bool) {
+        MemeCollectionVC.reloadData()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Set the flow layout 
+        let space:CGFloat = 3.0
+        let dimensionWidth = (view.frame.size.width - (2 * space)) / 3.0
+        let dimensionHeight = (view.frame.size.height - (2 * space)) / 3.0
+        
+        MemeCollectionViewFlowlayout.minimumInteritemSpacing = space
+        MemeCollectionViewFlowlayout.minimumLineSpacing = space
+        MemeCollectionViewFlowlayout.itemSize = CGSize(width: dimensionWidth, height:dimensionHeight )
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: #selector(MemeSentCollectionViewController.createNewMeme))
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+    func createNewMeme()
+    {
+        print("CLICKED CREATE NEW MEME")
+        // Get the storyboard and ResultViewController
+        let storyboard = UIStoryboard (name: "Main", bundle: nil)
+        let resultVC = storyboard.instantiateViewControllerWithIdentifier("MemeEditor")as! MemeEditorViewController
+        
+        // Communicate the match
+        
+        presentViewController(resultVC, animated: true, completion: nil)
+    }
+
+
+   
+
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        return 1
+    }
+
+
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return memes.count
+    }
+
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemeSentCollectionViewCell
+    
+        // Configure the cell
+        
+        cell.ImageViewMemeCollectionViewCell.image = memes[indexPath.row].memedImage
+        
+    
+        return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowCollectionViewDetail"{
+            let destination = segue.destinationViewController as? MemeDetailViewController
+            if let memeImageIndex = collectionView?.indexPathForCell(sender as! MemeSentCollectionViewCell){
+                destination!.combMemeImage = memes[memeImageIndex.row].memedImage}
+        }
+    }
+
+    
+}

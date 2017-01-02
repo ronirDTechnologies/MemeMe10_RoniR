@@ -18,6 +18,8 @@
 		BB3594841BB89EFC00D06204 /* MemeMe10_RoniRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3594831BB89EFC00D06204 /* MemeMe10_RoniRUITests.swift */; };
 		BB4F46BE1CF3267D0075C332 /* ufonts.com_impact-opentype.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */; };
 		BB73294A1CF3FAA700B47AD3 /* PickFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */; };
+		BB925F7D1D464A5900753EF4 /* MemeSentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB925F7C1D464A5900753EF4 /* MemeSentCollectionViewController.swift */; };
+		BB925F7F1D464B2000753EF4 /* MemeSentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB925F7E1D464B2000753EF4 /* MemeSentCollectionViewCell.swift */; };
 		BB935C901D2BDEA0000A7621 /* SentMemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB935C8F1D2BDEA0000A7621 /* SentMemeTableViewCell.swift */; };
 		BB9DE0A61CEBE87B0011D844 /* ufonts.com_impact-opentype.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */; };
 		BBF6DEE41D229BC3008DA035 /* MemeSentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */; };
@@ -57,6 +59,8 @@
 		BB3594831BB89EFC00D06204 /* MemeMe10_RoniRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMe10_RoniRUITests.swift; sourceTree = "<group>"; };
 		BB3594851BB89EFC00D06204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7329491CF3FAA700B47AD3 /* PickFontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFontViewController.swift; sourceTree = "<group>"; };
+		BB925F7C1D464A5900753EF4 /* MemeSentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeSentCollectionViewController.swift; sourceTree = "<group>"; };
+		BB925F7E1D464B2000753EF4 /* MemeSentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeSentCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB935C8F1D2BDEA0000A7621 /* SentMemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeTableViewCell.swift; sourceTree = "<group>"; };
 		BB9DE0A51CEBE87B0011D844 /* ufonts.com_impact-opentype.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ufonts.com_impact-opentype.otf"; sourceTree = "<group>"; };
 		BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeSentTableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				BBF6DEE31D229BC3008DA035 /* MemeSentTableViewController.swift */,
 				BB935C8F1D2BDEA0000A7621 /* SentMemeTableViewCell.swift */,
 				BB2887031D35E07B00224B48 /* MemeDetailViewController.swift */,
+				BB925F7C1D464A5900753EF4 /* MemeSentCollectionViewController.swift */,
+				BB925F7E1D464B2000753EF4 /* MemeSentCollectionViewCell.swift */,
 			);
 			path = MemeMe10_RoniR;
 			sourceTree = "<group>";
@@ -295,10 +301,12 @@
 			files = (
 				BB73294A1CF3FAA700B47AD3 /* PickFontViewController.swift in Sources */,
 				BB3594661BB89EFB00D06204 /* MemeEditorViewController.swift in Sources */,
+				BB925F7D1D464A5900753EF4 /* MemeSentCollectionViewController.swift in Sources */,
 				BB156EF11CE8A9A900FA5197 /* MemeModel.swift in Sources */,
 				BB935C901D2BDEA0000A7621 /* SentMemeTableViewCell.swift in Sources */,
 				BB2887041D35E07B00224B48 /* MemeDetailViewController.swift in Sources */,
 				BBF6DEE41D229BC3008DA035 /* MemeSentTableViewController.swift in Sources */,
+				BB925F7F1D464B2000753EF4 /* MemeSentCollectionViewCell.swift in Sources */,
 				BB3594641BB89EFB00D06204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

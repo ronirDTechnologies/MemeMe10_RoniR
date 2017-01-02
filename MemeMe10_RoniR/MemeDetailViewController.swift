@@ -12,29 +12,47 @@ class MemeDetailViewController: UIViewController {
 
     @IBOutlet var memeDetailViewImage: UIImageView!
     var combMemeImage: UIImage!
+    var topTextString: String = ""
+    var bottomTextString: String = ""
+    var origImage: UIImage!
+    var memeObj:MemeModel?
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Edit, target: self, action: #selector(MemeDetailViewController.EditExistingMeme))
         memeDetailViewImage.image = combMemeImage
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func EditExistingMeme()
+    {
+        let storyboard = UIStoryboard (name: "Main", bundle: nil)
+        let resultVC = storyboard.instantiateViewControllerWithIdentifier("MemeEditor")as! MemeEditorViewController
+        resultVC.topMemeTextField?.text = topTextString
+        resultVC.bottomMemeTextField?.text = bottomTextString
+        resultVC.userSelectedImage?.image = origImage
+        resultVC.memeObj = memeObj
+        
+        // Communicate the match
+        
+        presentViewController(resultVC, animated: true, completion: nil)
+        print("EDIT EXISTING MEME BUTTON PRESSED")
+        
+    
     }
-    */
+    
+    
+
+    
+    
 
 }
