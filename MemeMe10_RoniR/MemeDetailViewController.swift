@@ -22,7 +22,7 @@ class MemeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Edit, target: self, action: #selector(MemeDetailViewController.EditExistingMeme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.edit, target: self, action: #selector(MemeDetailViewController.EditExistingMeme))
         memeDetailViewImage.image = combMemeImage
 
         
@@ -36,7 +36,7 @@ class MemeDetailViewController: UIViewController {
     func EditExistingMeme()
     {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewControllerWithIdentifier("MemeEditor")as! MemeEditorViewController
+        let resultVC = storyboard.instantiateViewController(withIdentifier: "MemeEditor")as! MemeEditorViewController
         resultVC.topMemeTextField?.text = topTextString
         resultVC.bottomMemeTextField?.text = bottomTextString
         resultVC.userSelectedImage?.image = origImage
@@ -44,7 +44,7 @@ class MemeDetailViewController: UIViewController {
         
         // Communicate the match
         
-        presentViewController(resultVC, animated: true, completion: nil)
+        present(resultVC, animated: true, completion: nil)
         print("EDIT EXISTING MEME BUTTON PRESSED")
         
     

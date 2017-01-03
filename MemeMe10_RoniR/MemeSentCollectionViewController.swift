@@ -16,9 +16,9 @@ class MemeSentCollectionViewController: UICollectionViewController {
     @IBOutlet var MemeCollectionViewFlowlayout: UICollectionViewFlowLayout!
     
     var memes: [MemeModel] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).globalMemes
+        return (UIApplication.shared.delegate as! AppDelegate).globalMemes
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         MemeCollectionVC.reloadData()
     }
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class MemeSentCollectionViewController: UICollectionViewController {
         MemeCollectionViewFlowlayout.itemSize = CGSize(width: dimensionWidth, height:dimensionHeight )
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: #selector(MemeSentCollectionViewController.createNewMeme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.add, target: self, action: #selector(MemeSentCollectionViewController.createNewMeme))
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,29 +47,29 @@ class MemeSentCollectionViewController: UICollectionViewController {
         print("CLICKED CREATE NEW MEME")
         // Get the storyboard and ResultViewController
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewControllerWithIdentifier("MemeEditor")as! MemeEditorViewController
+        let resultVC = storyboard.instantiateViewController(withIdentifier: "MemeEditor")as! MemeEditorViewController
         
         // Communicate the match
         
-        presentViewController(resultVC, animated: true, completion: nil)
+        present(resultVC, animated: true, completion: nil)
     }
 
 
    
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return memes.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemeSentCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeSentCollectionViewCell
     
         // Configure the cell
         
@@ -79,10 +79,10 @@ class MemeSentCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCollectionViewDetail"{
-            let destination = segue.destinationViewController as? MemeDetailViewController
-            if let memeImageIndex = collectionView?.indexPathForCell(sender as! MemeSentCollectionViewCell){
+            let destination = segue.destination as? MemeDetailViewController
+            if let memeImageIndex = collectionView?.indexPath(for: sender as! MemeSentCollectionViewCell){
                 destination!.combMemeImage = memes[memeImageIndex.row].memedImage}
         }
     }
