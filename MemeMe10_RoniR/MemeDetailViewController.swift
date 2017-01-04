@@ -33,14 +33,22 @@ class MemeDetailViewController: UIViewController {
        
     }
     
+    func saveExistingMemeChanges()
+    {
+        
+    }
     func EditExistingMeme()
     {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewController(withIdentifier: "MemeEditor")as! MemeEditorViewController
-        resultVC.topMemeTextField?.text = topTextString
-        resultVC.bottomMemeTextField?.text = bottomTextString
-        resultVC.userSelectedImage?.image = origImage
+        
+        // Recreate pieces of original saved image details
+        resultVC.topMemeTextField?.text = memeObj?.topText
+        resultVC.bottomMemeTextField?.text = memeObj?.bottomText
+        resultVC.userSelectedImage?.image = memeObj?.originalImage
         resultVC.memeObj = memeObj
+        resultVC.editMemeFlag = true
+        resultVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(saveExistingMemeChanges))
         
         // Communicate the match
         

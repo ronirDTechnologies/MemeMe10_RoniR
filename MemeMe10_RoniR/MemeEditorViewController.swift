@@ -30,6 +30,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var globalFontValue = "Impact"
     var didComeFromDetailVC = false
     var memeObj: MemeModel?
+    var editMemeFlag = false
     
     
     
@@ -93,7 +94,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         showImagePickerController(.savedPhotosAlbum)
     }
     
-    
+    func saveExistingMemeChanges()
+    {
+        print("EDIT EXISTING MEME CHANGE TO SAVE ICON")
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -103,6 +107,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topMemeTextField.text = memeObj?.topText
         bottomMemeTextField.text = memeObj?.bottomText
         userSelectedImage.image = memeObj?.originalImage
+        
+        if (editMemeFlag == true)
+        {
+            actionButton.isEnabled = true
+            //actionButton = nil
+            //actionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(saveExistingMemeChanges))
+            actionButton = UIBarButtonItem(title: "SAVE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveExistingMemeChanges))
+           navigationItem.leftBarButtonItem = actionButton
+            
+        }
         
         
         // List all available font names3
