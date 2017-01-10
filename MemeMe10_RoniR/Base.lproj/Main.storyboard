@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -259,11 +260,14 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="DKb-uq-RP9">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="0V9-BA-Zlx">
-                                            <connections>
-                                                <action selector="performActionButton:" destination="BYZ-38-t0r" id="5br-fy-nrS"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem systemItem="action" id="0V9-BA-Zlx">
+                                                <connections>
+                                                    <action selector="performActionButton:" destination="BYZ-38-t0r" id="5br-fy-nrS"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Save" id="DiN-Jj-kuB"/>
+                                        </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="n7K-BG-50s">
                                             <connections>
                                                 <action selector="performCancelButton:" destination="BYZ-38-t0r" id="UZ1-YQ-Y9v"/>
@@ -369,13 +373,14 @@
                         <outlet property="memeNavBar" destination="0m5-fz-yel" id="dMl-OK-34t"/>
                         <outlet property="memeToolBar" destination="hgg-J4-tQR" id="J6w-vu-6Rg"/>
                         <outlet property="memeView" destination="KqD-cl-G53" id="dlh-Hf-pXa"/>
+                        <outlet property="saveButton" destination="0V9-BA-Zlx" id="4Vi-Zw-bQR"/>
                         <outlet property="topMemeTextField" destination="L2j-Ve-TRR" id="jfZ-hf-512"/>
                         <outlet property="userSelectedImage" destination="2Pn-Wy-COD" id="mXI-CB-RSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1827.5" y="-64.5"/>
+            <point key="canvasLocation" x="2025" y="496"/>
         </scene>
         <!--Font Selection View Controller-->
         <scene sceneID="H2H-q5-j6D">

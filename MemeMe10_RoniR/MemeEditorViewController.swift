@@ -18,6 +18,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var memeView: UIView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var topMemeTextField: UITextField!
     @IBOutlet weak var bottomMemeTextField: UITextField!
@@ -110,12 +111,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         if (editMemeFlag == true)
         {
-            actionButton.isEnabled = true
+            //actionButton.isEnabled = true
             //actionButton = nil
             //actionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(saveExistingMemeChanges))
-            actionButton = UIBarButtonItem(title: "SAVE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveExistingMemeChanges))
-           navigationItem.leftBarButtonItem = actionButton
-            
+            //actionButton = UIBarButtonItem(title: "SAVE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveExistingMemeChanges))
+           //navigationItem.leftBarButtonItem = actionButton
+            //self.memeNavBar.  navigationItem.leftBarButtonItem = saveButton
         }
         
         
