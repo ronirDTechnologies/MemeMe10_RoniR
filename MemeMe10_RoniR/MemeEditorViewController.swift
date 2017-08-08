@@ -31,7 +31,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var globalFontValue = "Impact"
     var didComeFromDetailVC = false
     var memeObj: Meme?
-    var editMemeFlag = false
+    
     
     
     
