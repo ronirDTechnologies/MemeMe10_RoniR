@@ -43,17 +43,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomMemeTextField.text = ""
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func performFontSelectorButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction func performFontSelectorButton(_ sender: UIBarButtonItem)
+    {
         var controller: PickFontViewController
         
         controller  = storyboard?.instantiateViewController(withIdentifier: "FontSelectorVC") as! PickFontViewController
         controller.m_currentFont = globalFontValue
         controller.delegate = self
-      //PickFontViewController.delegate = self
-                present(controller, animated: true, completion: nil)
-       
-        
+        present(controller, animated: true, completion: nil)
     }
+    
     @IBAction func performActionButton(_ sender: AnyObject)
     {
        // UNCOMMENT TO DEBUG print("THE ACTION BUTTON HAS BEEN PRESSED")
@@ -108,16 +108,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topMemeTextField.text = memeObj?.topText
         bottomMemeTextField.text = memeObj?.bottomText
         userSelectedImage.image = memeObj?.originalImage
-        
-        if (editMemeFlag == true)
-        {
-            //actionButton.isEnabled = true
-            //actionButton = nil
-            //actionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(saveExistingMemeChanges))
-            //actionButton = UIBarButtonItem(title: "SAVE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveExistingMemeChanges))
-           //navigationItem.leftBarButtonItem = actionButton
-            //self.memeNavBar.  navigationItem.leftBarButtonItem = saveButton
-        }
         
         
         // List all available font names3

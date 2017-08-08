@@ -8,7 +8,14 @@
 
 import Foundation
 import UIKit
-
+/*
+ * Meme Model representing an entire user Meme
+ * @topText - Will hold the text that appears at the top of the Meme
+ * @bottomText - Will hold the text that appears at the bottom of the Meme
+ * @orginalImage - Will hold the original image that was either selected from the photo library or
+ *                 taken by the device.
+ * @memedImage - Will hold the combined image and topText and bottomText of Meme.
+ */
 struct MemeModel{
     var topText: String
     var bottomText: String

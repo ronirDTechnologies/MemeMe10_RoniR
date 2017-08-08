@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZu-76-PwB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZu-76-PwB">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +33,7 @@
             <objects>
                 <navigationController id="OPP-Ob-iWF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collection" image="CollectionViewImage" id="jpO-j7-2Fn"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="x6M-TZ-lYY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x6M-TZ-lYY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -50,7 +49,7 @@
         <scene sceneID="XkA-kX-xWk">
             <objects>
                 <collectionViewController id="O0B-Bn-Wnh" customClass="MemeSentCollectionViewController" customModule="MemeMe10_RoniR" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="sqs-nF-Ayt">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sqs-nF-Ayt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGQ-V9-fsd" id="f0D-DR-oU0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Bi-Ex-la4">
@@ -228,7 +227,7 @@
             <objects>
                 <navigationController title="SENT MEMES" id="Srd-Al-u7N" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table" image="TableViewImage" id="FKk-cq-mU1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="X5c-oY-dMB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X5c-oY-dMB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -260,14 +259,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="DKb-uq-RP9">
-                                        <leftBarButtonItems>
-                                            <barButtonItem systemItem="action" id="0V9-BA-Zlx">
-                                                <connections>
-                                                    <action selector="performActionButton:" destination="BYZ-38-t0r" id="5br-fy-nrS"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Save" id="DiN-Jj-kuB"/>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="0V9-BA-Zlx">
+                                            <connections>
+                                                <action selector="performActionButton:" destination="BYZ-38-t0r" id="5br-fy-nrS"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="n7K-BG-50s">
                                             <connections>
                                                 <action selector="performCancelButton:" destination="BYZ-38-t0r" id="UZ1-YQ-Y9v"/>
@@ -402,7 +398,7 @@
                                 <rect key="frame" x="0.0" y="78" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jNe-Cd-PgK" id="zBx-Ha-uDg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
