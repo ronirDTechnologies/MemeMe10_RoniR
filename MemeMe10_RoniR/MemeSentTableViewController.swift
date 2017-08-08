@@ -13,7 +13,7 @@ class MemeSentTableViewController: UITableViewController {
     @IBOutlet var SentMemeTableView: UITableView!
     
 
-    var memes: [MemeModel] {
+    var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).globalMemes
     }
    
@@ -62,7 +62,7 @@ class MemeSentTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sentMeme", for: indexPath) as! SentMemeTableViewCell
 
         // Configure the cell...
-        let memeAtPath = memes[indexPath.row] as MemeModel!
+        let memeAtPath = memes[indexPath.row] as Meme!
         cell.sentMemeTableCellImage?.image = memeAtPath?.memedImage
         cell.sentMemeTableCellLabel.text = (memeAtPath?.topText)! + "...." + (memeAtPath?.bottomText)!
         

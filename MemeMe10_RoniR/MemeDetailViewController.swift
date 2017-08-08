@@ -15,7 +15,7 @@ class MemeDetailViewController: UIViewController {
     var topTextString: String = ""
     var bottomTextString: String = ""
     var origImage: UIImage!
-    var memeObj:MemeModel?
+    var memeObj:Meme?
     
     
     

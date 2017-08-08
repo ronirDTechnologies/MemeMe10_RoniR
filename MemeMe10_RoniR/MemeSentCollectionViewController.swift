@@ -15,7 +15,7 @@ class MemeSentCollectionViewController: UICollectionViewController {
     @IBOutlet var MemeCollectionVC: UICollectionView!
     @IBOutlet var MemeCollectionViewFlowlayout: UICollectionViewFlowLayout!
     
-    var memes: [MemeModel] {
+    var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).globalMemes
     }
     override func viewWillAppear(_ animated: Bool) {

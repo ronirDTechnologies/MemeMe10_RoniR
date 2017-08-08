@@ -16,7 +16,7 @@ import UIKit
  *                 taken by the device.
  * @memedImage - Will hold the combined image and topText and bottomText of Meme.
  */
-struct MemeModel{
+struct Meme{
     var topText: String
     var bottomText: String
     var originalImage: UIImage

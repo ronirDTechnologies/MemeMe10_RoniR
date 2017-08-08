@@ -27,10 +27,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var memeToolBar: UIToolbar!
     var priorKeyboardHeight: CGFloat = 0.0
     var combinedMeme: UIImage!
-    var savedMemes = [MemeModel]()
+    var savedMemes = [Meme]()
     var globalFontValue = "Impact"
     var didComeFromDetailVC = false
-    var memeObj: MemeModel?
+    var memeObj: Meme?
     var editMemeFlag = false
     
     
@@ -364,7 +364,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
    func saveMeme()
    {
         // Save the Meme in the MemeModel
-        let memeModelVal = MemeModel( topText: topMemeTextField.text!,
+        let memeModelVal = Meme( topText: topMemeTextField.text!,
                                 bottomText: bottomMemeTextField.text!,
                                     originalImage: userSelectedImage.image!,
                                     memedImage: combinedMeme)
