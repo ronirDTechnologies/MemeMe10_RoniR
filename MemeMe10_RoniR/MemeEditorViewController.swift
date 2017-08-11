@@ -128,10 +128,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = sourceType
         imagePickerController.delegate = self
-        
-        // Allow Editing to allow for cropping an image per Udacity forums.
+        /* 08-08-2017 Per code review, remove as this will force the user to crop their image into a square and might cause an important part of image to be lost.
+        Allow Editing to allow for cropping an image per Udacity forums.
         imagePickerController.allowsEditing = true
-        
+        */
         present(imagePickerController, animated: true, completion: nil)
         
     }
