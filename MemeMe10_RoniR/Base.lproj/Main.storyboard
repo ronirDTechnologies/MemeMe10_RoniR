@@ -127,18 +127,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="111.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Bi-Ex-la4">
-                                            <rect key="frame" x="-6" y="-8" width="180" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Bi-Ex-la4">
+                                            <rect key="frame" x="-6" y="-8" width="318.33333333333331" height="128"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzy-d3-dZF">
-                                            <rect key="frame" x="182" y="45" width="180" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzy-d3-dZF">
+                                            <rect key="frame" x="320.33333333333326" y="45" width="41.666666666666686" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Uzy-d3-dZF" secondAttribute="trailing" constant="44" id="0Uq-Me-DfR"/>
+                                        <constraint firstItem="Uzy-d3-dZF" firstAttribute="top" secondItem="f0D-DR-oU0" secondAttribute="topMargin" constant="37" id="4kc-Zb-mkm"/>
+                                        <constraint firstItem="Uzy-d3-dZF" firstAttribute="leading" secondItem="7Bi-Ex-la4" secondAttribute="trailing" constant="8" id="78U-Pn-0ul"/>
+                                        <constraint firstItem="Uzy-d3-dZF" firstAttribute="leading" secondItem="7Bi-Ex-la4" secondAttribute="trailing" constant="8" id="7N7-Ef-DT0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Uzy-d3-dZF" secondAttribute="bottom" constant="37.670000000000002" id="FCR-kb-HtH"/>
+                                        <constraint firstItem="7Bi-Ex-la4" firstAttribute="top" secondItem="f0D-DR-oU0" secondAttribute="top" constant="-8" id="JUF-L4-jfi"/>
+                                        <constraint firstItem="7Bi-Ex-la4" firstAttribute="leading" secondItem="f0D-DR-oU0" secondAttribute="leading" constant="-6" id="gyJ-OS-jCH"/>
+                                        <constraint firstAttribute="bottom" secondItem="7Bi-Ex-la4" secondAttribute="bottom" constant="-8.3300000000000001" id="w1s-hr-sVL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="sentMemeTableCellImage" destination="7Bi-Ex-la4" id="BOA-3f-2Mb"/>
@@ -418,6 +426,6 @@
         <image name="TableViewImage" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RRf-Cr-mX9"/>
+        <segue reference="eee-N7-CZ3"/>
     </inferredMetricsTieBreakers>
 </document>
