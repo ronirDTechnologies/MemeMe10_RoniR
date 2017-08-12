@@ -340,11 +340,30 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    /*
+     *  08-11-2017 Per code review, abstract the hiding of the tools bars into a method.  Make the method flexible for future implementations if the user wants to hide the navBar and show the Toolbar or vice versus
+     *             @hideNavBar - sets whether the nav bar will be hidden or not.
+     *             @hideToolBar - sets whether the tool bar is hidden or not.
+     */
+    func configBars(hideNavBar:Bool, hideToolBar:Bool)
+    {
+        // If both bars have the same hide property then set both hidden properties to the hideToolBar, else just set what the user passes for each.
+        if (hideNavBar == hideToolBar )
+        {
+            memeToolBar.isHidden = hideToolBar
+            memeNavBar.isHidden = hideToolBar
+        }
+        else
+        {
+            memeToolBar.isHidden = hideToolBar
+            memeNavBar.isHidden = hideNavBar
+        }
+    }
+    
     func generateMemedImage() -> UIImage {
         
         //Hide toolbar and navbar
-        memeToolBar.isHidden = true
-        memeNavBar.isHidden = true
+        configBars(hideNavBar: true, hideToolBar: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
@@ -355,8 +374,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         UIGraphicsEndImageContext()
         
         //Show toolbar and navbar
-        memeToolBar.isHidden = false
-        memeNavBar.isHidden = false
+        configBars(hideNavBar: false, hideToolBar: false)
         
         return memedImage
     }
