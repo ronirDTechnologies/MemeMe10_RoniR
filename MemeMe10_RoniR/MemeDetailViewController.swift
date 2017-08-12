@@ -20,17 +20,13 @@ class MemeDetailViewController: UIViewController {
     
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         memeDetailViewImage.image = combMemeImage
-
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
-    }
+    
     
     
     
