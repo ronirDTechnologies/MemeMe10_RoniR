@@ -83,7 +83,12 @@ class MemeSentCollectionViewController: UICollectionViewController {
         if segue.identifier == "ShowCollectionViewDetail"{
             let destination = segue.destination as? MemeDetailViewController
             if let memeImageIndex = collectionView?.indexPath(for: sender as! MemeSentCollectionViewCell){
-                destination!.combMemeImage = memes[memeImageIndex.row].memedImage}
+                destination!.combMemeImage = memes[memeImageIndex.row].memedImage
+                
+            // 08-12-2017: Per code review, hide tab bar on push to detail meme view
+            destination?.hidesBottomBarWhenPushed = true
+            }
+            
         }
     }
 

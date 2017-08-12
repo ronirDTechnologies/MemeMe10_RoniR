@@ -109,6 +109,9 @@ class MemeSentTableViewController: UITableViewController {
             destination.bottomTextString = memes[memeImageIndex].bottomText
             destination.origImage = memes[memeImageIndex].originalImage
             destination.memeObj = memes[memeImageIndex]
+            
+            // 08-12-2017: Per code review, hide tab bar on push to detail meme view
+            destination.hidesBottomBarWhenPushed = true
         }
     }
   

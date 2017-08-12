@@ -24,6 +24,7 @@ class MemeDetailViewController: UIViewController {
     {
         super.viewDidLoad()
         memeDetailViewImage.image = combMemeImage
+        
     }
 
     
